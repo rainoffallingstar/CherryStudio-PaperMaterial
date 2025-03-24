@@ -1,0 +1,148 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# CherryStudio-PaperMaterial
+
+A material design theme for Cherry Studio with Paper-like GUI.
+
+### CodeLine
+
+``` css
+:root {
+  /* Material Design 基础变量 */
+  --elevation-1: 0 2px 4px rgba(0,0,0,0.1);
+  --elevation-2: 0 4px 8px rgba(0,0,0,0.1);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* 统一的用户消息样式 - Material Design浅色调 */
+  --chat-background-user-color: #E1F5FE; /* Material Light Blue 50 */
+  --chat-text-user-color: #0288D1; /* Material Light Blue 700 */
+  --chat-shadow-user: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* 暗色主题 */
+body[theme-mode="dark"] {
+  --color-primary: #BB86FC;
+  --color-secondary: #03DAC6;
+  --color-background: #121212;
+  --color-surface: #1E1E1E;
+  --color-on-surface: #FFFFFF;
+  
+  --navbar-background: #1D1D1D;
+  --chat-background: #121212;
+  --chat-background-assistant: #2D2D2D;
+  --chat-text-assistant: #E0E0E0;
+  
+  /* Elevation 效果 */
+  box-shadow: var(--elevation-2);
+  transition: var(--transition);
+}
+
+/* 亮色主题 */
+body[theme-mode="light"] {
+  --color-primary: #6200EE;
+  --color-secondary: #03DAC6;
+  --color-background: #FAFAFA;
+  --color-surface: #FFFFFF;
+  --color-on-surface: #212121;
+  
+  --navbar-background: #FFFFFF;
+  --chat-background: #FAFAFA;
+  --chat-background-assistant: #EEEEEE;
+  --chat-text-assistant: #333333;
+  
+  box-shadow: var(--elevation-1);
+  transition: var(--transition);
+}
+
+/* 共用组件样式 */
+#content-container {
+  background-color: var(--color-surface) !important;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin: 0px;
+}
+
+.ant-collapse {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevation-1);
+}
+
+.ant-collapse-item {
+  transition: var(--transition);
+}
+
+.ant-collapse-item:hover {
+  background-color: rgba(98, 0, 238, 0.08);
+}
+
+.ant-collapse-content {
+  background-color: var(--color-background);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* 聊天泡泡样式 */
+.chat-message {
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  margin: 8px;
+  max-width: 80%;
+}
+
+/* 用户消息样式统一，不受主题切换影响 - 采用Material更轻柔的色调 */
+.chat-message-user {
+  background-color: var(--chat-background-user-color);
+  color: var(--chat-text-user-color);
+  box-shadow: var(--chat-shadow-user);
+  border-top-left-radius: var(--radius-sm);
+  position: relative;
+  /* 添加微妙的底部边框提升精致感 */
+  border-bottom: 1px solid rgba(0,136,209,0.1);
+}
+
+.chat-message-assistant {
+  background-color: var(--chat-background-assistant);
+  color: var(--chat-text-assistant);
+  box-shadow: var(--elevation-1);
+  border-top-right-radius: var(--radius-sm);
+}
+
+/* 导航栏 Material 化 */
+.navbar {
+  background-color: var(--navbar-background) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 0 24px;
+  height: 64px;
+}
+
+.navbar-item {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.navbar-item:hover {
+  background-color: rgba(98, 0, 238, 0.12);
+}
+
+/* 交互状态 */
+button {
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary);
+  color: white;
+  transition: var(--transition);
+}
+
+button:hover {
+  box-shadow: var(--elevation-2);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+```
