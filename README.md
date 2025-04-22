@@ -14,7 +14,20 @@ Ref to
 
 # Changelog
 
-- 2025-04-22 Update CSS code and fix user text color in dark mode.
+- 2025-04-22 Update CSS code and fix user text color in dark mode, use
+  Pingfang and SF Mono fonts.
+
+### Preview
+
+<figure>
+<img src="preview/light-mode.png" alt="LightMode" />
+<figcaption aria-hidden="true">LightMode</figcaption>
+</figure>
+
+<figure>
+<img src="preview/dark-mode.png" alt="DarkMode" />
+<figcaption aria-hidden="true">DarkMode</figcaption>
+</figure>
 
 ### CodeLine
 
@@ -27,7 +40,7 @@ Ref to
 
 /* 全局样式设置 */
 * {
-    font-family: "霞鹜文楷 GB 屏幕阅读版", "Roboto", system-ui !important;
+    font-family: ".苹方-简", "SF Mono", system-ui !important;
     line-height: 1.7 !important;
     letter-spacing: 0.018em !important;
     font-weight: 500;
@@ -35,12 +48,12 @@ Ref to
 
 /* 代码字体 */
 pre *, code *, kbd, samp, tt {
-    font-family: "Maple Mono NL CN", "Roboto Mono", monospace !important;
+    font-family: "SF Mono", "SF Mono", monospace !important;
 }
 
 .markdown * code {
     color: #B00020; /* Material error color */
-    font-family: "Maple Mono NL CN", monospace !important;
+    font-family: "SF Mono", monospace !important;
 }
 
 /* 浅色模式 - Material Design调色板 */
