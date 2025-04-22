@@ -3,146 +3,273 @@
 
 # CherryStudio-PaperMaterial
 
-A material design theme for Cherry Studio with Paper-like GUI.
+A material design theme for Cherry Studio with Paper-like GUI. Powed by
+DeepSeek V3.1and Claude 3.7.
+
+Ref to
+
+- [CherryStudio-Claudestyle-dynamic](https://github.com/bjl101501/CherryStudio-Claudestyle-dynamic)
+
+- [Aero Theme](https://github.com/hakadao/CherryStudio-Aero)
+
+# Changelog
+
+- 2025-04-22 Update CSS code and fix user text color in dark mode.
 
 ### CodeLine
 
 ``` css
+/* ======================== 全局主题变量定义 - Material Design风格 ======================== */
 :root {
-  /* Material Design 基础变量 */
-  --elevation-1: 0 2px 4px rgba(0,0,0,0.1);
-  --elevation-2: 0 4px 8px rgba(0,0,0,0.1);
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  
-  /* 统一的用户消息样式 - Material Design浅色调 */
-  --chat-background-user-color: #E1F5FE; /* Material Light Blue 50 */
-  --chat-text-user-color: #0288D1; /* Material Light Blue 700 */
-  --chat-shadow-user: 0 1px 3px rgba(0,0,0,0.08);
+    --chat-background-white: #FAFAFA; /* Material light background */
+    --color-border: rgba(0, 0, 0, 0.12) !important; /* Material border opacity */
 }
 
-/* 暗色主题 */
-body[theme-mode="dark"] {
-  --color-primary: #BB86FC;
-  --color-secondary: #03DAC6;
-  --color-background: #121212;
-  --color-surface: #1E1E1E;
-  --color-on-surface: #FFFFFF;
-  
-  --navbar-background: #1D1D1D;
-  --chat-background: #121212;
-  --chat-background-assistant: #2D2D2D;
-  --chat-text-assistant: #E0E0E0;
-  
-  /* Elevation 效果 */
-  box-shadow: var(--elevation-2);
-  transition: var(--transition);
+/* 全局样式设置 */
+* {
+    font-family: "霞鹜文楷 GB 屏幕阅读版", "Roboto", system-ui !important;
+    line-height: 1.7 !important;
+    letter-spacing: 0.018em !important;
+    font-weight: 500;
 }
 
-/* 亮色主题 */
-body[theme-mode="light"] {
-  --color-primary: #6200EE;
-  --color-secondary: #03DAC6;
-  --color-background: #FAFAFA;
-  --color-surface: #FFFFFF;
-  --color-on-surface: #212121;
-  
-  --navbar-background: #FFFFFF;
-  --chat-background: #FAFAFA;
-  --chat-background-assistant: #EEEEEE;
-  --chat-text-assistant: #333333;
-  
-  box-shadow: var(--elevation-1);
-  transition: var(--transition);
+/* 代码字体 */
+pre *, code *, kbd, samp, tt {
+    font-family: "Maple Mono NL CN", "Roboto Mono", monospace !important;
 }
 
-/* 共用组件样式 */
-#content-container {
-  background-color: var(--color-surface) !important;
-  border-radius: var(--radius-md);
-  padding: 16px;
-  margin: 0px;
+.markdown * code {
+    color: #B00020; /* Material error color */
+    font-family: "Maple Mono NL CN", monospace !important;
 }
 
-.ant-collapse {
-  background-color: var(--color-surface);
-  border-radius: var(--radius-md);
-  box-shadow: var(--elevation-1);
+/* 浅色模式 - Material Design调色板 */
+body[theme-mode='light'] {
+    --color-primary: #6200EE; /* Material primary purple */
+    --color-primary-soft: rgba(98, 0, 238, 0.7);
+    --color-primary-mute: rgba(98, 0, 238, 0.1);
+    --color-background: #FFFFFF;       /* Material surface color */
+    --color-background-mute: #FAFAFA;  /* Material background */
+    --color-background-soft: #F5F5F5;  /* Material light grey */
+    --navbar-background: #FFFFFF;      /* App bar color */
+    --chat-background: #FAFAFA;        /* Chat background */
+    --chat-background-white: #FFFFFF;  /* Message background */
+    --chat-background-user: #F5F5F5;   /* User message */
+    --chat-background-assistant: #FFFFFF; /* Assistant message */
+    --color-text: rgba(0, 0, 0, 0.87); /* High-emphasis text */
+    --color-text-medium: rgba(0, 0, 0, 0.6); /* Medium-emphasis */
+    --color-text-disabled: rgba(0, 0, 0, 0.38); /* Disabled */
+    --color-border: rgba(0, 0, 0, 0.12); /* Dividers */
 }
 
-.ant-collapse-item {
-  transition: var(--transition);
+/* 深色模式 - Material Dark theme */
+body[theme-mode='dark'] {
+    --color-primary: #BB86FC;          /* Material dark primary */
+    --color-primary-soft: rgba(187, 134, 252, 0.7);
+    --color-primary-mute: rgba(187, 134, 252, 0.1);
+    --color-background: #121212;       /* Dark surface */
+    --color-background-mute: #1E1E1E;  /* Slightly lighter */
+    --color-background-soft: #2D2D2D;  /* Cards/dialogs */
+    --navbar-background-mac: rgba(30, 30, 30, 0.85);
+    --navbar-background: #1E1E1E;
+    --chat-background: #121212;
+    --chat-background-white: #1E1E1E;
+    --chat-background-user: #2D2D2D;
+    --chat-background-assistant: #1E1E1E;
+    --color-border: rgba(255, 255, 255, 0.12);
+    --chat-text-user: #FFFFFF;         /* High-emphasis in dark */
+    --color-text: rgba(255, 255, 255, 0.87);
+    --color-text-medium: rgba(255, 255, 255, 0.6);
+    --color-text-disabled: rgba(255, 255, 255, 0.38);
 }
 
-.ant-collapse-item:hover {
-  background-color: rgba(98, 0, 238, 0.08);
+/* 消息容器 - 添加Material elevation */
+.message-content-container {
+    background: var(--chat-background-white) !important;
+    margin: 8px 0 !important;
+    padding: 16px !important; /* Increased padding */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: none !important;
+    border-radius: 4px !important; /* Material rounded corners */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important; /* Elevation 1 */
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
-.ant-collapse-content {
-  background-color: var(--color-background);
-  border-radius: 0 0 var(--radius-md) var(--radius-md);
+body[theme-mode='dark'] .markdown {
+    color: var(--chat-text-user) !important;
 }
 
-/* 聊天泡泡样式 */
-.chat-message {
-  padding: 12px 16px;
-  border-radius: var(--radius-md);
-  margin: 8px;
-  max-width: 80%;
+.message-content-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1) !important; /* Elevation 2 on hover */
 }
 
-/* 用户消息样式统一，不受主题切换影响 - 采用Material更轻柔的色调 */
-.chat-message-user {
-  background-color: var(--chat-background-user-color);
-  color: var(--chat-text-user-color);
-  box-shadow: var(--chat-shadow-user);
-  border-top-left-radius: var(--radius-sm);
-  position: relative;
-  /* 添加微妙的底部边框提升精致感 */
-  border-bottom: 1px solid rgba(0,136,209,0.1);
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
-.chat-message-assistant {
-  background-color: var(--chat-background-assistant);
-  color: var(--chat-text-assistant);
-  box-shadow: var(--elevation-1);
-  border-top-right-radius: var(--radius-sm);
+.message-user .message-content-container {
+    background: var(--chat-background-user) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* 导航栏 Material 化 */
-.navbar {
-  background-color: var(--navbar-background) !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 0 24px;
-  height: 64px;
+.message-user .message-content-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15) !important;
 }
 
-.navbar-item {
-  padding: 12px 16px;
-  border-radius: var(--radius-sm);
-  transition: var(--transition);
+/* 深色模式下的消息容器 */
+body[theme-mode='dark'] .message-content-container {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
 }
 
-.navbar-item:hover {
-  background-color: rgba(98, 0, 238, 0.12);
+body[theme-mode='dark'] .message-content-container:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
 }
 
-/* 交互状态 */
-button {
-  padding: 8px 16px;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-primary);
-  color: white;
-  transition: var(--transition);
+body[theme-mode='dark'] .message-user .message-content-container {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important;
 }
 
-button:hover {
-  box-shadow: var(--elevation-2);
-  transform: translateY(-1px);
+body[theme-mode='dark'] .message-user .message-content-container:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4) !important;
 }
 
-button:active {
-  transform: translateY(1px);
+/* 输入框样式 - Material Design */
+#inputbar {
+    margin: 0px 16px 16px 16px; /* Increased margin */
+    background: #FFFFFF !important;
+    border: none !important;
+    border-radius: 28px !important; /* Full shape */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 12px 24px !important;
+}
+
+#inputbar:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.16) !important;
+}
+
+#inputbar:focus-within {
+    transform: scale(1.01);
+    box-shadow: 0 6px 12px rgba(98, 0, 238, 0.2) !important;
+}
+
+body[theme-mode='dark'] #inputbar {
+    background: #2D2D2D !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+    color: white !important;
+}
+
+body[theme-mode='dark'] #inputbar:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4) !important;
+}
+
+body[theme-mode='dark'] #inputbar:focus-within {
+    box-shadow: 0 6px 12px rgba(187, 134, 252, 0.3) !important;
+}
+
+/* 按钮样式 - Material Design */
+.ant-btn-primary {
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    color: white !important;
+    border-radius: 4px !important;
+    padding: 8px 16px !important;
+    height: auto !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.05em !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+    box-shadow: 0 4px 8px rgba(98, 0, 238, 0.3) !important;
+    transform: translateY(-1px);
+}
+
+.ant-btn-primary:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(98, 0, 238, 0.2) !important;
+}
+
+/* 选项卡样式 - Material Design */
+.ant-tabs-tab {
+    padding: 12px 16px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ant-tabs-tab:hover {
+    color: var(--color-primary) !important;
+    background: rgba(98, 0, 238, 0.04) !important;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active {
+    color: var(--color-primary) !important;
+    font-weight: 500 !important;
+}
+
+.ant-tabs-ink-bar {
+    background: var(--color-primary) !important;
+    height: 3px !important;
+}
+
+/* 滑块样式 - Material Design */
+.ant-slider {
+    margin: 16px 6px 10px !important;
+}
+
+.ant-slider-track {
+    background-color: var(--color-primary) !important;
+    height: 4px !important;
+}
+
+.ant-slider-handle {
+    border: 2px solid var(--color-primary) !important;
+    width: 20px !important;
+    height: 20px !important;
+    margin-top: -8px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.ant-slider-handle:hover {
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3) !important;
+}
+
+/* Ripple effect for buttons */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.ant-btn:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+}
+
+.ant-btn:active:after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
 }
 ```
