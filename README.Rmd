@@ -287,5 +287,4 @@ body[theme-mode='dark'] #inputbar:focus-within {
     opacity: 0.3;
     transition: 0s;
 }
-
 ```
